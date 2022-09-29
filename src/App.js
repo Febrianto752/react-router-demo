@@ -1,13 +1,15 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import About from "./components/About";
-import Home from "./components/Home";
-import Products from "./components/Products";
-import Navbar from "./components/Navbar";
-import FoodList from "./components/FoodList";
-import SportList from "./components/SportList";
-import UserList from "./components/UserList";
-import UserDetail from "./components/UserDetail";
-import Admin from "./components/Admin";
+import {
+  Navbar,
+  Home,
+  About,
+  Products,
+  FoodList,
+  SportList,
+  UserList,
+  UserDetail,
+  Admin,
+} from "./components";
 
 function App() {
   return (
