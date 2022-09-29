@@ -2,7 +2,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import {
   Navbar,
   Home,
-  About,
+  // About,
   Products,
   FoodList,
   SportList,
@@ -11,13 +11,23 @@ import {
   Admin,
 } from "./components";
 
+import React from "react";
+const LazyAbout = React.lazy(() => import("./components/About"));
+
 function App() {
   return (
     <BrowserRouter>
       <Navbar />
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="about" element={<About />} />
+        <Route
+          path="about"
+          element={
+            <React.Suspense fallback="Loading...">
+              <LazyAbout />
+            </React.Suspense>
+          }
+        />
         <Route path="products" element={<Products />}>
           <Route index element={<FoodList />} />
           <Route path="foods" element={<FoodList />} />
