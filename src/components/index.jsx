@@ -8,6 +8,9 @@ import Home from "./Home";
 import About from "./About";
 import Navbar from "./Navbar";
 import Error from "./Error";
+import Profile from "./Profile";
+import Login from "./Login";
+import RequireLogin from "./RequireLogin";
 
 export {
   Admin,
@@ -20,4 +23,7 @@ export {
   About,
   Navbar,
   Error,
+  Profile,
+  Login,
+  RequireLogin,
 };

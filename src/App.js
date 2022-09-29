@@ -1,46 +1,44 @@
+import React from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import {
   Navbar,
   Home,
   // About,
-  Products,
-  FoodList,
-  SportList,
-  UserList,
-  UserDetail,
-  Admin,
+  // Products,
+  // FoodList,
+  // SportList,
+  // UserList,
+  // UserDetail,
+  // Admin,
   Error,
+  Profile,
+  Login,
+  RequireLogin,
 } from "./components";
 
-import React from "react";
-const LazyAbout = React.lazy(() => import("./components/About"));
+// const LazyAbout = React.lazy(() => import("./components/About"));
+
+import { AuthProvider } from "./components/AuthProvider";
 
 function App() {
   return (
     <BrowserRouter>
-      <Navbar />
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route
-          path="about"
-          element={
-            <React.Suspense fallback="Loading...">
-              <LazyAbout />
-            </React.Suspense>
-          }
-        />
-        <Route path="products" element={<Products />}>
-          <Route index element={<FoodList />} />
-          <Route path="foods" element={<FoodList />} />
-          <Route path="sports" element={<SportList />} />
-        </Route>
-
-        <Route path="users" element={<UserList />}>
-          <Route path=":userId" element={<UserDetail />} />
-          <Route path="admin" element={<Admin />} />
-        </Route>
-        <Route path="*" element={<Error />} />
-      </Routes>
+      <AuthProvider>
+        <Navbar />
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route
+            path="profile"
+            element={
+              <RequireLogin>
+                <Profile />
+              </RequireLogin>
+            }
+          />
+          <Route path="login" element={<Login />} />
+          <Route path="*" element={<Error />} />
+        </Routes>
+      </AuthProvider>
     </BrowserRouter>
   );
 }

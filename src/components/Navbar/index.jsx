@@ -1,13 +1,15 @@
 import { NavLink } from "react-router-dom";
+import { useAuth } from "../AuthProvider";
 
 const Navbar = () => {
   const navLinkStyles = ({ isActive }) => {
-    console.log(isActive);
     return {
       fontWeight: isActive ? "bold" : "normal",
       textDecoration: isActive ? "none" : "underline",
     };
   };
+  const auth = useAuth();
+  console.log(auth);
 
   return (
     <nav>
@@ -18,20 +20,19 @@ const Navbar = () => {
           </NavLink>
         </li>
         <li>
-          <NavLink style={navLinkStyles} to="/about" end>
-            About
+          <NavLink style={navLinkStyles} to={"/profile"} end>
+            Profile
           </NavLink>
         </li>
-        <li>
-          <NavLink style={navLinkStyles} to="/products" end>
-            Products
-          </NavLink>
-        </li>
-        <li>
-          <NavLink style={navLinkStyles} to="/users" end>
-            Users
-          </NavLink>
-        </li>
+        {!auth.user ? (
+          <li>
+            <NavLink style={navLinkStyles} to={"/login"} end>
+              Login
+            </NavLink>
+          </li>
+        ) : (
+          ""
+        )}
       </ul>
     </nav>
   );
