@@ -9,6 +9,7 @@ import {
   UserList,
   UserDetail,
   Admin,
+  Error,
 } from "./components";
 
 import React from "react";
@@ -38,6 +39,7 @@ function App() {
           <Route path=":userId" element={<UserDetail />} />
           <Route path="admin" element={<Admin />} />
         </Route>
+        <Route path="*" element={<Error />} />
       </Routes>
     </BrowserRouter>
   );

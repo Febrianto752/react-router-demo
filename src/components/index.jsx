@@ -7,6 +7,7 @@ import UserDetail from "./UserDetail";
 import Home from "./Home";
 import About from "./About";
 import Navbar from "./Navbar";
+import Error from "./Error";
 
 export {
   Admin,
@@ -18,4 +19,5 @@ export {
   Home,
   About,
   Navbar,
+  Error,
 };
