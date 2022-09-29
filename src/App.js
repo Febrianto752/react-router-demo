@@ -5,6 +5,9 @@ import Products from "./components/Products";
 import Navbar from "./components/Navbar";
 import FoodList from "./components/FoodList";
 import SportList from "./components/SportList";
+import UserList from "./components/UserList";
+import UserDetail from "./components/UserDetail";
+import Admin from "./components/Admin";
 
 function App() {
   return (
@@ -17,6 +20,11 @@ function App() {
           <Route index element={<FoodList />} />
           <Route path="foods" element={<FoodList />} />
           <Route path="sports" element={<SportList />} />
+        </Route>
+
+        <Route path="users" element={<UserList />}>
+          <Route path=":userId" element={<UserDetail />} />
+          <Route path="admin" element={<Admin />} />
         </Route>
       </Routes>
     </BrowserRouter>
