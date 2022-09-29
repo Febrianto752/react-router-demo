@@ -23,8 +23,8 @@ const Navbar = () => {
           </NavLink>
         </li>
         <li>
-          <NavLink style={navLinkStyles} to="/about/contacts" end>
-            About
+          <NavLink style={navLinkStyles} to="/products" end>
+            Products
           </NavLink>
         </li>
       </ul>
